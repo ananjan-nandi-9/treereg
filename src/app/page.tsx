@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 const sections = [
     { id: "abstract", title: "Abstract" },
@@ -83,6 +84,7 @@ export default function Page() {
     }, []);
 
     return (
+
         <div className="min-h-screen bg-[#FFFCF8] flex flex-col items-center p-6 font-serif text-zinc-700">
             {/* Responsive Layout */}
             <div className="flex w-full max-w-6xl mx-auto">
@@ -267,7 +269,7 @@ export default function Page() {
                                         <td className="py-3 px-4 border-b text-center text-zinc-700">XX%</td>
                                     </tr>
                                     <tr className="bg-white">
-                                        <td className="py-3 px-4 border-b text-left font-bold text-zinc-700">NNetNav (Ours)</td>
+                                        <td className="py-3 px-4 border-b text-left font-bold text-zinc-700">LLaMa-NNetNav (Ours)</td>
                                         <td className="py-3 px-4 border-b text-center font-bold text-zinc-700">XX%</td>
                                         <td className="py-3 px-4 border-b text-center font-bold text-zinc-700">XX%</td>
                                     </tr>
