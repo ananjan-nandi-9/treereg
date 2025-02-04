@@ -106,7 +106,7 @@ export default function Page() {
                     {/* Stanford NLP Logo */}
                     <div className="mt-6 flex justify-center">
                         <Image
-                            src="/stanfordnlp_full.svg"  // Ensure this is the correct path
+                            src="./stanfordnlp_full.svg"  // Ensure this is the correct path
                             alt="Stanford NLP Logo"
                             width={120}
                             height={40}
@@ -185,7 +185,7 @@ export default function Page() {
                         </p>
                         <div className="mt-6">
                             <Image
-                                src="/nnetnav_overview.svg"
+                                src="./nnetnav_overview.svg"
                                 alt="NNetNav Overview Figure"
                                 width={1000}
                                 height={800}
