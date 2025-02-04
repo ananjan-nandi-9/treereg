@@ -1,0 +1,1 @@
+Identify a course on Coursera named 'Introduction to Finance: The Basics', who is the course instructor and what other courses does he/she teach.

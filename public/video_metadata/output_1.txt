@@ -1,0 +1,1 @@
+Retrieve an example of a pre-trained model on Hugging Face that is optimized for question answering tasks and detail the languages it supports.
