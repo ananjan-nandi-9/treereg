@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Select from "react-select";
 
 const sections = [
     { id: "abstract", title: "Abstract" },
@@ -19,10 +18,6 @@ export default function Page() {
     const [videoTitles, setVideoTitles] = useState(Array(29).fill(""));
     const [activeSection, setActiveSection] = useState("");
 
-    const videoOptions = videoTitles.map((title, index) => ({
-        value: index,
-        label: title,
-    }));
 
 
 
@@ -38,6 +33,7 @@ export default function Page() {
                     setVideoText("No description available.");
                 }
             } catch (error) {
+                console.error(error); // Avoids lint warning
                 setVideoText("Error loading description.");
             }
         };
@@ -54,7 +50,9 @@ export default function Page() {
                         if (response.ok) {
                             return await response.text();
                         }
-                    } catch (error) { }
+                    } catch (error) {
+                        console.error(error); // Avoids lint warning
+                    }
                     return `Video ${index + 1}`;
                 })
             );
