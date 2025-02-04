@@ -12,7 +12,7 @@ const sections = [
 ];
 
 export default function Page() {
-    const videoSources = Array.from({ length: 29 }, (_, i) => `/videos/output_${i}.mp4`);
+    const videoSources = Array.from({ length: 29 }, (_, i) => `./videos/output_${i}.mp4`);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [videoText, setVideoText] = useState("");
     const [videoTitles, setVideoTitles] = useState(Array(29).fill(""));
@@ -25,7 +25,7 @@ export default function Page() {
     useEffect(() => {
         const fetchVideoText = async () => {
             try {
-                const response = await fetch(`/video_metadata/output_${currentIndex}.txt`);
+                const response = await fetch(`./video_metadata/output_${currentIndex}.txt`);
                 if (response.ok) {
                     const text = await response.text();
                     setVideoText(text);
@@ -46,7 +46,7 @@ export default function Page() {
             const titles = await Promise.all(
                 videoSources.map(async (_, index) => {
                     try {
-                        const response = await fetch(`/video_metadata/description_${index}.txt`);
+                        const response = await fetch(`./video_metadata/description_${index}.txt`);
                         if (response.ok) {
                             return await response.text();
                         }
@@ -149,12 +149,12 @@ export default function Page() {
                     <div className="bg-white shadow-md rounded-xl p-8 mb-10">
                         <ul className="grid grid-cols-2 sm:grid-cols-6 gap-6 text-lg text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600">
                             {[
-                                { icon: "/icons/paper.svg", link: "https://arxiv.org/abs/2410.02907", label: "Paper" },
-                                { icon: "/icons/code.svg", link: "https://github.com/MurtyShikhar/NNetnav", label: "Code" },
-                                { icon: "/icons/nnetnav-live.svg", link: "https://huggingface.co/stanfordnlp/llama8b-nnetnav-wa", label: "Model (WA)" },
-                                { icon: "/icons/nnetnav-live.svg", link: "https://huggingface.co/stanfordnlp/llama8b-nnetnav-live", label: "Model (Live)" },
-                                { icon: "/icons/data.svg", link: "https://huggingface.co/datasets/stanfordnlp/nnetnav-wa", label: "Data (WA)" },
-                                { icon: "/icons/data.svg", link: "https://huggingface.co/datasets/stanfordnlp/nnetnav-live", label: "Data (Live)" }
+                                { icon: "./icons/paper.svg", link: "https://arxiv.org/abs/2410.02907", label: "Paper" },
+                                { icon: "./icons/code.svg", link: "https://github.com/MurtyShikhar/NNetnav", label: "Code" },
+                                { icon: "./icons/nnetnav-live.svg", link: "https://huggingface.co/stanfordnlp/llama8b-nnetnav-wa", label: "Model (WA)" },
+                                { icon: "./icons/nnetnav-live.svg", link: "https://huggingface.co/stanfordnlp/llama8b-nnetnav-live", label: "Model (Live)" },
+                                { icon: "./icons/data.svg", link: "https://huggingface.co/datasets/stanfordnlp/nnetnav-wa", label: "Data (WA)" },
+                                { icon: "./icons/data.svg", link: "https://huggingface.co/datasets/stanfordnlp/nnetnav-live", label: "Data (Live)" }
                             ].map(({ icon, link, label }, index) => (
                                 <li key={index} className="flex flex-col items-center">
                                     <Image src={icon} alt={`${label} Icon`} width={50} height={50} />
@@ -225,7 +225,7 @@ export default function Page() {
 
                             <div className="bg-white shadow-md rounded-xl overflow-hidden w-full max-w-2xl mt-4">
                                 <video className="w-full" key={videoSources[currentIndex]} controls>
-                                    <source src={`/videos/output_${currentIndex}.webm`} type="video/webm" />
+                                    <source src={`./videos/output_${currentIndex}.webm`} type="video/webm" />
                                     <source src={videoSources[currentIndex]} type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
