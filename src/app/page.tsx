@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
 
 const sections = [
     { id: "abstract", title: "Abstract" },
