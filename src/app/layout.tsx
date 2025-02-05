@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NNetNav - Unsupervised Browser Agents',
     description: 'Unsupervised learning for browser automation.',
-    images: '/opengraph-image.png', // Uses the static image
+    images: './opengraph-image.png', // Uses the static image
   },
 };
 
