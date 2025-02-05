@@ -128,7 +128,7 @@ export default function Page() {
                             NNetNav: Unsupervised Learning of Browser Agents Through Environment Interaction in the Wild
                         </h2>
                         <p className="text-lg mt-4 text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600">
-                            <a href="https://cs.stanford.edu/~shikhar/" className="text-blue-600 hover:underline ml-2">
+                            <a href="https://shikharmurty.com" className="text-blue-600 hover:underline ml-2">
                                 Shikhar Murty<sup>1</sup>
                             </a>,
                             <a href="https://www.zhuhao.me" className="text-blue-600 hover:underline ml-2">
