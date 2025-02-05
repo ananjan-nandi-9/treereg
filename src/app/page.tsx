@@ -242,16 +242,17 @@ export default function Page() {
                     {/* Example Rollouts */}
                     <section id="benchmarks" className="w-full max-w-3xl rounded-lg p-8 mt-12 mb-8">
                         <h3 className="text-2xl font-semibold text-zinc-700 mb-4">Benchmarks & Results</h3>
-                        <p className="text-lg text-zinc-700 leading-relaxed mb-6">
+                        <p className="text-lg text-zinc-700 mb-4 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600">
                             We evaluate <strong>NNetNav</strong> on two standard web navigation benchmarks:
                             <strong>WebArena</strong> and <strong>WebVoyager</strong>. Our method achieves significant improvements over existing baselines, including large-scale language models like GPT-4 and zero-shot LLaMA-3.1-8b.
+                            Please read our <a href="https://arxiv.org/abs/2410.02907" className="text-zinc-800 hover:underline [&_a]:underline">paper</a> for more details on the experimental setup and results.
                         </p>
-
                         <div className="overflow-x-auto">
                             <table className="min-w-full border border-gray-300 rounded-lg">
                                 <thead>
                                     <tr className="bg-gray-200">
                                         <th className="py-3 px-4 border-b text-left font-bold text-zinc-700">Method</th>
+                                        <th className="py-3 px-4 border-b text-center font-bold text-zinc-700">Param Count</th>
                                         <th className="py-3 px-4 border-b text-center font-bold text-zinc-700">WebArena</th>
                                         <th className="py-3 px-4 border-b text-center font-bold text-zinc-700">WebVoyager</th>
                                     </tr>
@@ -259,22 +260,62 @@ export default function Page() {
                                 <tbody>
                                     <tr className="bg-white">
                                         <td className="py-3 px-4 border-b text-left text-zinc-700">GPT-4 (Zero-shot)</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">XX%</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">XX%</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">?</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">14.1%</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">33.5%</td>
                                     </tr>
                                     <tr className="bg-gray-50">
                                         <td className="py-3 px-4 border-b text-left text-zinc-700">LLaMA-3.1-8B (Zero-shot)</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">XX%</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">XX%</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">8B</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">1%</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">4%</td>
                                     </tr>
                                     <tr className="bg-white">
-                                        <td className="py-3 px-4 border-b text-left font-bold text-zinc-700">LLaMa-NNetNav (Ours)</td>
-                                        <td className="py-3 px-4 border-b text-center font-bold text-zinc-700">XX%</td>
-                                        <td className="py-3 px-4 border-b text-center font-bold text-zinc-700">XX%</td>
+                                        <td className="py-3 px-4 border-b text-left text-zinc-700">Qwen-7B-AgentTrek <span className="text-sm text-gray-500">(Xu et al., 2024)</span></td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">7B</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">10.5%</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">-</td>
+                                    </tr>
+                                    <tr className="bg-gray-50">
+                                        <td className="py-3 px-4 border-b text-left text-zinc-700">Qwen-32B-AgentTrek <span className="text-sm text-gray-500">(Xu et al., 2024)</span></td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">32B</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">16.3%</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">-</td>
+                                    </tr>
+                                    <tr className="bg-white">
+                                        <td className="py-3 px-4 border-b text-left text-zinc-700">LLaVa-34B PAE <span className="text-sm text-gray-500">(Zhou et al., 2024)</span></td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">34B</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">-</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">33.0%</td>
+                                    </tr>
+                                    <tr className="bg-gray-50">
+                                        <td className="py-3 px-4 border-b text-left text-zinc-700">LLaVa-7B PAE <span className="text-sm text-gray-500">(Zhou et al., 2024)</span></td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">7B</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">-</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">22.3%</td>
+                                    </tr>
+                                    <tr className="bg-white">
+                                        <td className="py-3 px-4 border-b text-left font-bold text-zinc-700">LLaMa-8B-NNetNav-WA (Ours)</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">8B</td>
+                                        <td className="py-3 px-4 border-b text-center font-bold text-zinc-700">16.3%</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">28.1%</td>
+                                    </tr>
+                                    <tr className="bg-gray-50">
+                                        <td className="py-3 px-4 border-b text-left font-bold text-zinc-700">LLaMa-8B-NNetNav-Live (Ours)</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">8B</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">9.5%</td>
+                                        <td className="py-3 px-4 border-b text-center font-bold text-zinc-700">35.2%</td>
+                                    </tr>
+                                    <tr className="bg-gray-50">
+                                        <td className="py-3 px-4 border-b text-left font-bold text-zinc-700">LLaMa-8B-NNetNav-All (Ours)</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">8B</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">14.9%</td>
+                                        <td className="py-3 px-4 border-b text-center text-zinc-700">34.1%</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+
                     </section>
 
 
