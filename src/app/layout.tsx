@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "NNetNav",
   description: "A method for training browser agents with unsupervised interaction on websites",
+  openGraph: {
+    title: 'NNetNav - Unsupervised Browser Agents',
+    description: 'Unsupervised learning for browser automation.',
+    images: '/opengraph-image.png', // Uses the static image
+  },
 };
 
 export default function RootLayout({
