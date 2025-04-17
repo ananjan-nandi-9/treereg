@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'TreeReg - Sneaking Syntax into Transformer LMs',
     description: 'Loss function for improving data-efficiency and generalization in transformer language models.',
-    images: './treereg_fig_1.png', // Uses the static image
+    images: './rsz_1treereg_fig_1.png', // Uses the static image
   },
 };
 
