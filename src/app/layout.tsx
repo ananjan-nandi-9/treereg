@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NNetNav",
-  description: "A method for training browser agents with unsupervised interaction on websites",
+  title: "TreeReg",
+  description: "A method to softly bias transformer circuits towards hierarchical computation, without any architectural modifications.",
   openGraph: {
-    title: 'NNetNav - Unsupervised Browser Agents',
-    description: 'Unsupervised learning for browser automation.',
-    images: './opengraph-image.png', // Uses the static image
+    title: 'TreeReg - Sneaking Syntax into Transformer LMs',
+    description: 'Loss function for improving data-efficiency and generalization in transformer language models.',
+    images: './treereg_fig_1.png', // Uses the static image
   },
 };
 

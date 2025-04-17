@@ -6,8 +6,9 @@ import Image from "next/image";
 
 const sections = [
     { id: "abstract", title: "Abstract" },
-    { id: "examples", title: "Example Rollouts" },
-    { id: "benchmarks", title: "Benchmarks & Results" },
+    { id: "method", title: "Method" },
+    { id: "highlights", title: "Key Highlights" },
+    { id: "benchmarks", title: "Overview of Results" },
     { id: "citation", title: "Citation" },
 ];
 
@@ -86,16 +87,16 @@ export default function Page() {
 
         <div className="min-h-screen bg-[#FFFCF8] flex flex-col items-center p-6 font-serif text-zinc-700">
             {/* Responsive Layout */}
-            <div className="flex w-full max-w-6xl mx-auto">
+            <div className="flex w-full max-w-7xl mx-auto">
                 {/* Floating Table of Contents */}
-                <aside className="w-64 hidden lg:block fixed top-20 left-8 shadow-md rounded-lg p-6 border border-gray-200">
+                <aside className="w-64 hidden lg:block fixed top-20 left-8 shadow-md rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300">
                     <h3 className="text-lg font-bold text-zinc-700">Table of Contents</h3>
                     <ul className="mt-4 space-y-4">
                         {sections.map(({ id, title }) => (
                             <li key={id}>
                                 <a
                                     href={`#${id}`}
-                                    className={`block text-zinc-600 hover:text-zinc-900 transition ${activeSection === id ? "font-bold text-blue-600 bg-gray-100 p-2 rounded-md" : ""
+                                    className={`block text-zinc-600 hover:text-zinc-900 transition-all duration-200 ${activeSection === id ? "font-bold text-blue-600 bg-gray-100 p-2 rounded-md scale-105" : ""
                                         }`}
                                 >
                                     {title}
@@ -107,11 +108,11 @@ export default function Page() {
                     {/* Stanford NLP Logo */}
                     <div className="mt-6 flex justify-center">
                         <Image
-                            src="./stanfordnlp_full.svg"  // Ensure this is the correct path
+                            src="./stanfordnlp_full.svg"
                             alt="Stanford NLP Logo"
                             width={120}
                             height={40}
-                            className="rounded-md"
+                            className="rounded-md hover:scale-105 transition-transform duration-300"
                         />
                     </div>
                 </aside>
@@ -124,38 +125,32 @@ export default function Page() {
 
                     {/* Header */}
                     <header className="text-center my-10 w-full">
-                        <h2 className="text-3xl font-bold text-zinc-700">
-                            NNetNav: Unsupervised Learning of Browser Agents Through Environment Interaction in the Wild
+                        <h2 className="text-4xl font-bold text-zinc-700 hover:text-zinc-900 transition-colors duration-300">
+                            Sneaking Syntax into Transformer Language Models with Tree Regularization
                         </h2>
                         <p className="text-lg mt-4 text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600">
-                            <a href="https://shikharmurty.com" className="text-blue-600 hover:underline ml-2">
-                                Shikhar Murty<sup>1</sup>
+                        <a href="https://ananjan-nandi-9.github.io/" className="text-blue-600 hover:underline ml-2">
+                                Ananjan Nandi<sup>1</sup>
                             </a>,
-                            <a href="https://www.zhuhao.me" className="text-blue-600 hover:underline ml-2">
-                                Hao Zhu<sup>1</sup>
-                            </a>,
-                            <a href="https://rizar.github.io" className="text-blue-600 hover:underline ml-2">
-                                Dzmitry Bahdanau<sup>2</sup>
-                            </a>, and
                             <a href="https://nlp.stanford.edu/~manning/" className="text-blue-600 hover:underline ml-2">
                                 Christopher Manning<sup>1</sup>
+                            </a>, and 
+                            <a href="https://shikharmurty.com" className="text-blue-600 hover:underline ml-2">
+                                Shikhar Murty<sup>1</sup>
                             </a>
                         </p>
                         <p className="text-sm text-zinc-600 mt-2">
-                            <sup>1</sup>Stanford University, <sup>2</sup>ServiceNow Research
+                            <sup>1</sup>Stanford University
                         </p>
                     </header>
 
 
-                    <div className="bg-white shadow-md rounded-xl p-8 mb-10">
-                        <ul className="grid grid-cols-2 sm:grid-cols-6 gap-6 text-lg text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600">
+                    <div className="bg-white shadow-md rounded-xl p-8 mb-10 hover:shadow-lg transition-all duration-300">
+                        <ul className="grid grid-cols-3 gap-6 text-lg text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600">
                             {[
-                                { icon: "./icons/paper.svg", link: "https://arxiv.org/abs/2410.02907", label: "Paper" },
-                                { icon: "./icons/code.svg", link: "https://github.com/MurtyShikhar/NNetnav", label: "Code" },
-                                { icon: "./icons/nnetnav-live.svg", link: "https://huggingface.co/stanfordnlp/llama8b-nnetnav-wa", label: "Model (WA)" },
-                                { icon: "./icons/nnetnav-live.svg", link: "https://huggingface.co/stanfordnlp/llama8b-nnetnav-live", label: "Model (Live)" },
-                                { icon: "./icons/data.svg", link: "https://huggingface.co/datasets/stanfordnlp/nnetnav-wa", label: "Data (WA)" },
-                                { icon: "./icons/data.svg", link: "https://huggingface.co/datasets/stanfordnlp/nnetnav-live", label: "Data (Live)" }
+                                { icon: "./icons/paper.svg", link: "https://arxiv.org/abs/2411.18885", label: "Paper" },
+                                { icon: "./icons/code.svg", link: "https://github.com/ananjan-nandi-9/tree_regularization", label: "Code" },
+                                { icon: "./icons/mail.svg", link: "mailto:ananjan@stanford.edu", label: "Mail" }
                             ].map(({ icon, link, label }, index) => (
                                 <li key={index} className="flex flex-col items-center">
                                     <Image src={icon} alt={`${label} Icon`} width={50} height={50} />
@@ -167,162 +162,235 @@ export default function Page() {
                         </ul>
                     </div>
 
-                    {/* Sections */}
-                    <section id="abstract" className="w-full max-w-3xl rounded-lg p-8 mb-8">
-                        <h3 className="text-2xl font-semibold text-zinc-700 mb-3">Abstract</h3>
-                        <p className="text-lg text-zinc-700 leading-relaxed">
-                            We introduce <strong>NNetNav</strong>, a method for unsupervised interaction with websites that
-                            generates synthetic demonstrations for training browser agents. Given any website, NNetNav produces these
-                            demonstrations by retroactively labeling action sequences from an exploration policy. Most work on training
-                            browser agents has relied on expensive human supervision, and the limited prior work on such interaction-based
-                            techniques has failed to provide effective search through the exponentially large space of exploration.
-                            In contrast, NNetNav exploits the hierarchical structure of language instructions to make this search more
-                            tractable: Complex instructions are typically decomposable into simpler sub-tasks, allowing NNetNav to automatically
-                            prune interaction episodes when an intermediate trajectory cannot be annotated with a meaningful sub-task.
-                            <br /><br />
-                            LLama-3.1-8b finetuned on 10k NNetNav self-generated demonstrations obtains over <strong>16%</strong> success rate
-                            on WebArena, and <strong>35%</strong> on WebVoyager, an improvement of <strong>15pts</strong> and <strong>31pts</strong> respectively over zero-shot LLama-3.1-8b, outperforming zero-shot GPT-4 and reaching the state-of-the-art among
-                            unsupervised methods, for both benchmarks.
+                    <section className="w-full max-w-4xl rounded-lg p-8 mb-8">
+                        <p className="text-xl text-zinc-700 leading-relaxed">
+                            <strong>TL;DR:</strong> <strong>TreeReg</strong> is an <strong>auxiliary loss term</strong> to inject syntactic inductive biases into transformer circuits <strong>without architectural modifications</strong>, resulting in improved <strong>data-efficiency</strong>, <strong>out-of-distribution language understanding</strong> and <strong>generalization</strong>.
                         </p>
-                        <div className="mt-6">
+                    </section>
+
+                    {/* Sections */}
+                    <section id="abstract" className="w-full max-w-4xl rounded-lg p-8 mb-8">
+                        <div className="mt-6 mb-8">
                             <Image
-                                src="./nnetnav_overview.svg"
-                                alt="NNetNav Overview Figure"
+                                src="./treereg_animation.gif"
+                                alt="TreeReg Animation"
                                 width={1000}
                                 height={800}
-                                className="rounded-md"
+                                className="rounded-md border border-gray-200 hover:border-gray-300 transition-all duration-300"
                             />
                             <p className="text-sm text-zinc-600 mt-2 text-center">
-                                Figure 1: Given web URLs (1), NNetNav (2) uses a structured exploration strategy to interact with websites (3) and autonomously discover diverse (instruction, trajectory) demonstrations, as summarized in (4). To effectively prune exploration, the trajectory-so-far is periodically evaluated by a relabeling module and further exploration continues only if it can be assigned a meaningful language instruction. All components in NNetNav are implemented with the same zero-shot base LLM
+                                An overview of <strong>TreeReg</strong>
+                            </p>
+                        </div>
+                        <h3 className="text-2xl font-semibold text-zinc-700 mb-3">Abstract</h3>
+                        <p className="text-lg text-zinc-700 leading-relaxed">
+                            While compositional accounts of human language understanding are based on a <strong>hierarchical tree-like process</strong>, neural models like transformers lack a direct inductive bias for such
+                            tree structures. Introducing syntactic inductive biases could unlock more robust and data-efficient learning in transformer language models (LMs), but existing methods for incorporating such structure greatly restrict models,
+                            either limiting their expressivity or increasing
+                            inference complexity. 
+                            <br></br>
+                            <br></br>
+                            This work instead aims
+                            to softly inject syntactic inductive biases into
+                            given transformer circuits, through a <strong>structured
+                            regularizer</strong>.
+                            We introduce <strong>TreeReg</strong>, an auxiliary loss function that converts bracketing
+                            decisions from silver parses into a set of differentiable orthogonality constraints on vector
+                            hidden states. <strong>TreeReg</strong> integrates seamlessly
+                            with the standard LM objective, requiring no
+                            architectural changes. 
+                            <br></br>
+                            <br></br>
+                            LMs pre-trained with <strong>TreeReg</strong> on natural language corpora such
+                            as WikiText-103 achieve up to <strong>10%</strong> lower perplexities on out-of-distribution data and up to <strong>9.5</strong> point improvements in syntactic generalization, requiring <strong>less than half the training data</strong> to
+                            outperform standard LMs. <strong>TreeReg</strong> still provides gains for pre-trained LLMs: Continued
+                            pre-training of Sheared Llama with <strong>TreeReg</strong> results in improved syntactic generalization,
+                            and fine-tuning on MultiNLI with <strong>TreeReg</strong> mitigates degradation of performance on adversarial NLI benchmarks by <strong>41.2</strong> points. 
+                        </p>
+                    </section>
+                    
+                    <section id="method" className="w-full max-w-4xl rounded-lg p-8 mb-8">
+                        <h3 className="text-2xl font-semibold text-zinc-700 mb-6">Method</h3>
+                        <div className="mt-6 mb-8">
+                            <Image
+                                src="./treereg_fig_1.png"
+                                alt="TreeReg Method Diagram" 
+                                width={1000}
+                                height={800}
+                                className="rounded-md border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                            />
+                            <p className="text-sm text-zinc-600 mt-2 text-center">
+                                Computation of the <strong>TreeReg</strong> loss (L<sub>TR</sub>) for "he is very happy now". This loss term softly biases hidden states from a given transformer circuit to respect syntactic structure through orthogonality constraints.
                             </p>
                         </div>
                     </section>
 
-
-                    <section id="examples" className="w-full max-w-3xl rounded-lg p-8 mb-8">
-                        <h3 className="text-2xl font-semibold text-zinc-700 mb-6">Example Traces from our Models</h3>
-                        <p className="text-lg text-zinc-700 mb-4 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600">
-                            Below are some example traces from our model on <a href="https://webarena.dev/" className="text-blue-600 hover:underline">WebArena</a> and <a href="https://github.com/MinorJerry/WebVoyager" className="text-blue-600 hover:underline">WebVoyager</a>.
-                            The model is able to follow complex instructions such as "Reply to the first comment on the post about woodworking in the sub-reddit r/woodworking" and "Find driving directions from Stanford to San Francisco".
-                            In some of these examples the model shows the ability to back-track. Pushing further on such emergent back-tracking is an active area of research for us.
-                        </p>
-                        <div className="relative w-full flex flex-col items-center">
-
-                            <p className="text-zinc-700 mb-2 text-lg font-medium">
-                                Use the dropdown to choose an example to view
-                            </p>
-                            <select
-                                className="p-3 border border-gray-300 rounded-md bg-white text-zinc-700 text-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none hover:bg-gray-50 transition"
-                                value={currentIndex}
-                                onChange={(e) => setCurrentIndex(Number(e.target.value))}
-                            >
-                                {videoTitles.map((title, index) => (
-                                    <option key={index} value={index}>
-                                        {title}
-                                    </option>
-                                ))}
-                            </select>
-
-
-                            <div className="bg-white shadow-md rounded-xl overflow-hidden w-full max-w-2xl mt-4">
-                                <video className="w-full" key={videoSources[currentIndex]} controls>
-                                    <source src={`./videos/output_${currentIndex}.webm`} type="video/webm" />
-                                    <source src={videoSources[currentIndex]} type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                        </div>
-
-                        <p className="mt-4 text-lg text-zinc-700 text-center">
-                            {videoText}
-                        </p>
+                    <section id="highlights" className="w-full max-w-4xl rounded-lg p-8 mb-8">
+                        <h3 className="text-2xl font-semibold text-zinc-700 mb-6">Key Highlights</h3>
+                        <ul className="space-y-4 text-lg text-zinc-700">
+                            {[
+                                { emoji: "🛠️", text: "<strong>Plug-and-Play Regularizer:</strong> Just add <strong>TreeReg</strong> to your LM loss — no changes to model architecture or inference." },
+                                { emoji: "📈", text: "<strong>Data-Efficient Language Learning:</strong> Outperforms baselines on syntactic generalization with less than half the training data." },
+                                { emoji: "🚀", text: "<strong>Robust OOD Understanding:</strong> Boost out-of-distribution language understanding and syntactic generalization across model scales." },
+                                { emoji: "🧩", text: "<strong>Broad Applicability:</strong> Effective during pre-training from scratch, as well as continued pre-training and fine-tuning of pre-trained LLMs." },
+                                { emoji: "🔄", text: "<strong>Flexible and Efficient:</strong> Apply <strong>TreeReg</strong> on a parsed dataset while pre-training on a separate unparsed corpus, and retain all benefits." }
+                            ].map((item, index) => (
+                                <li key={index} className="flex items-start hover:bg-gray-50 p-2 rounded-md transition-all duration-200">
+                                    <span className="mr-2">{item.emoji}</span>
+                                    <span dangerouslySetInnerHTML={{ __html: item.text }} />
+                                </li>
+                            ))}
+                        </ul>
                     </section>
 
 
                     {/* Example Rollouts */}
-                    <section id="benchmarks" className="w-full max-w-3xl rounded-lg p-8 mt-12 mb-8">
-                        <h3 className="text-2xl font-semibold text-zinc-700 mb-4">Benchmarks & Results</h3>
+                    <section id="benchmarks" className="w-full max-w-4xl rounded-lg p-8 mt-12 mb-8">
+                        <h3 className="text-2xl font-semibold text-zinc-700 mb-4">Overview of Results</h3>
                         <p className="text-lg text-zinc-700 mb-4 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600">
-                            We evaluate <strong>NNetNav</strong> on two standard web navigation benchmarks:
-                            <strong>WebArena</strong> and <strong>WebVoyager</strong>. Our method achieves significant improvements over existing baselines, including large-scale language models like GPT-4 and zero-shot LLaMA-3.1-8b.
-                            Please read our <a href="https://arxiv.org/abs/2410.02907" className="text-zinc-800 hover:underline [&_a]:underline">paper</a> for more details on the experimental setup and results.
+                            Detailed experimental setups and results are available in our <a href="https://arxiv.org/abs/2411.18885" className="text-zinc-800 hover:underline [&_a]:underline">paper</a>.
                         </p>
-                        <div className="overflow-x-auto">
-                            <table className="min-w-full border border-gray-300 rounded-lg">
-                                <thead>
-                                    <tr className="bg-gray-200">
-                                        <th className="py-3 px-4 border-b text-left font-bold text-zinc-700">Method</th>
-                                        <th className="py-3 px-4 border-b text-center font-bold text-zinc-700">Param Count</th>
-                                        <th className="py-3 px-4 border-b text-center font-bold text-zinc-700">WebArena</th>
-                                        <th className="py-3 px-4 border-b text-center font-bold text-zinc-700">WebVoyager</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr className="bg-white">
-                                        <td className="py-3 px-4 border-b text-left text-zinc-700">GPT-4 (Zero-shot)</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">?</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">14.1%</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">33.5%</td>
-                                    </tr>
-                                    <tr className="bg-gray-50">
-                                        <td className="py-3 px-4 border-b text-left text-zinc-700">LLaMA-3.1-8B (Zero-shot)</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">8B</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">1%</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">4%</td>
-                                    </tr>
-                                    <tr className="bg-white">
-                                        <td className="py-3 px-4 border-b text-left text-zinc-700">Qwen-7B-AgentTrek <span className="text-sm text-gray-500">(Xu et al., 2024)</span></td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">7B</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">10.5%</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">-</td>
-                                    </tr>
-                                    <tr className="bg-gray-50">
-                                        <td className="py-3 px-4 border-b text-left text-zinc-700">Qwen-32B-AgentTrek <span className="text-sm text-gray-500">(Xu et al., 2024)</span></td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">32B</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">16.3%</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">-</td>
-                                    </tr>
-                                    <tr className="bg-white">
-                                        <td className="py-3 px-4 border-b text-left text-zinc-700">LLaVa-34B PAE <span className="text-sm text-gray-500">(Zhou et al., 2024)</span></td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">34B</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">-</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">33.0%</td>
-                                    </tr>
-                                    <tr className="bg-gray-50">
-                                        <td className="py-3 px-4 border-b text-left text-zinc-700">LLaVa-7B PAE <span className="text-sm text-gray-500">(Zhou et al., 2024)</span></td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">7B</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">-</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">22.3%</td>
-                                    </tr>
-                                    <tr className="bg-white">
-                                        <td className="py-3 px-4 border-b text-left font-bold text-zinc-700">LLaMa-8B-NNetNav-WA (Ours)</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">8B</td>
-                                        <td className="py-3 px-4 border-b text-center font-bold text-zinc-700">16.3%</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">28.1%</td>
-                                    </tr>
-                                    <tr className="bg-gray-50">
-                                        <td className="py-3 px-4 border-b text-left font-bold text-zinc-700">LLaMa-8B-NNetNav-Live (Ours)</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">8B</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">9.5%</td>
-                                        <td className="py-3 px-4 border-b text-center font-bold text-zinc-700">35.2%</td>
-                                    </tr>
-                                    <tr className="bg-gray-50">
-                                        <td className="py-3 px-4 border-b text-left font-bold text-zinc-700">LLaMa-8B-NNetNav-All (Ours)</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">8B</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">14.9%</td>
-                                        <td className="py-3 px-4 border-b text-center text-zinc-700">34.1%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
 
+
+                        <ul className="space-y-8 text-lg text-zinc-700">
+                            <li>
+                                <p className="mb-4">
+                                    <strong>Grokking:</strong>
+                                    <br></br>
+                                     LMs pre-trained with <strong>TreeReg</strong> grok faster and achieve higher performance than non-syntactic baselines on diagnostic sentence transformation tasks.
+                                </p>
+                                <div className="overflow-x-auto mb-8">
+                                    <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                                        <thead>
+                                            <tr className="bg-gray-100">
+                                                <th className="px-3 py-1.5 text-center text-sm font-semibold text-gray-700 border-b border-r border-gray-200">Model</th>
+                                                <th className="px-3 py-1.5 text-center text-sm font-semibold text-gray-700 border-b border-r border-gray-200 min-w-[180px]">Accuracy (↑)</th>
+                                                <th className="px-3 py-1.5 text-center text-sm font-semibold text-gray-700 border-b border-gray-200 min-w-[180px]">Iteration of Convergence (↓)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr className="bg-gray-50">
+                                                <td className="px-3 py-1.5 text-sm text-gray-700 border-b border-r border-gray-200 text-center" colSpan={3}>
+                                                    <i>Tense Inflection</i>
+                                                </td>
+                                            </tr>
+                                            <tr className="hover:bg-gray-100 transition-colors duration-150">
+                                                <td className="px-3 py-1.5 text-sm text-gray-700 border-b border-r border-gray-200 text-center">Base LM</td>
+                                                <td className="px-3 py-1.5 text-sm text-gray-700 border-b border-r border-gray-200 text-center min-w-[180px]">47.2 ± 16.7</td>
+                                                <td className="px-3 py-1.5 text-sm text-gray-700 border-b border-gray-200 text-center min-w-[180px]">427k ± 41k</td>
+                                            </tr>
+                                            <tr className="hover:bg-gray-100 transition-colors duration-150">
+                                                <td className="px-3 py-1.5 text-sm font-medium text-gray-900 border-b border-r border-gray-200 text-center">TreeReg LM</td>
+                                                <td className="px-3 py-1.5 text-sm font-medium text-gray-900 border-b border-r border-gray-200 text-center min-w-[180px]"><strong>90.4 ± 6.3</strong></td>
+                                                <td className="px-3 py-1.5 text-sm font-medium text-gray-900 border-b border-gray-200 text-center min-w-[180px]"><strong>391k ± 35k</strong></td>
+                                            </tr>
+                                            <tr className="bg-gray-50">
+                                                <td className="px-3 py-1.5 text-sm font-medium text-gray-900 border-b border-r border-gray-200 text-center" colSpan={3}>
+                                                    <i>Question Formation</i>
+                                                </td>
+                                            </tr>
+                                            <tr className="hover:bg-gray-100 transition-colors duration-150">
+                                                <td className="px-3 py-1.5 text-sm text-gray-700 border-b border-r border-gray-200 text-center">Base LM</td>
+                                                <td className="px-3 py-1.5 text-sm text-gray-700 border-b border-r border-gray-200 text-center min-w-[180px]">42.1 ± 15.4</td>
+                                                <td className="px-3 py-1.5 text-sm text-gray-700 border-b border-gray-200 text-center min-w-[180px]">460k ± 7k</td>
+                                            </tr>
+                                            <tr className="hover:bg-gray-100 transition-colors duration-150">
+                                                <td className="px-3 py-1.5 text-sm font-medium text-gray-900 border-b border-r border-gray-200 text-center">TreeReg LM</td>
+                                                <td className="px-3 py-1.5 text-sm font-medium text-gray-900 border-b border-r border-gray-200 text-center min-w-[180px]"><strong>99.6 ± 0.7</strong></td>
+                                                <td className="px-3 py-1.5 text-sm font-medium text-gray-900 border-b border-gray-200 text-center min-w-[180px]"><strong>43k ± 26k</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                            <li>
+                                <p className="mb-4">
+                                    <strong>Pre-training on a parsed corpus:</strong>
+                                    <br></br>
+                                     Pre-training 16-layer language models from scratch with <strong>TreeReg</strong> on the <strong>BLLIP-LG</strong> corpus results in out-of-distribution language understanding improvements on the Penn Treebank, as well as syntactic generalization gains on BLiMP and SyntaxGym.
+                                </p>
+                                <div className="flex justify-center">
+                                    <Image
+                                        src="./prs.png"
+                                        alt="Pre-training on a parsed corpus"
+                                        width={600}
+                                        height={500}
+                                        className="rounded-md border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                                    />
+                                </div>
+                            </li>
+                            <li>
+                                <p className="mb-4">
+                                    <strong>Pre-training sample-efficiency:</strong>
+                                    <br></br>
+                                     Model with <strong>TreeReg</strong> surpasses the baseline's syntactic generalization when trained on only half of its training data. 
+                                </p>
+                                <div className="flex justify-center">
+                                    <Image
+                                        src="./sg_se-1.png"
+                                        alt="Pre-training sample-efficiency"
+                                        width={300}
+                                        height={300}
+                                        className="rounded-md border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                                    />
+                                </div>
+                            </li>
+                            <li>
+                                <p className="mb-4">
+                                    <strong>Pre-training on a mixture of parsed and unparsed corpora: </strong>
+                                    <br></br>
+                                     Pre-training <strong>GPT-2-small</strong> on the unparsed <strong>WikiText-103</strong> corpus while performing <strong>TreeReg</strong> on the parsed <strong>BLLIP-LG</strong> corpus results in improved syntactic generalization and out-of-distribution language understanding. 
+                                </p>
+                                <div className="flex justify-center">
+                                    <Image
+                                        src="./prpup.png"
+                                        alt="Pre-training on a mixture of parsed and unparsed corpora"
+                                        width={600}
+                                        height={500}
+                                        className="rounded-md border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                                    />
+                                </div>
+                            </li>
+                            <li>
+                                <p className="mb-4">
+                                    <strong>Continued pre-training:</strong>
+                                    <br></br>
+                                     Using <strong>TreeReg</strong> during continued pre-training of <strong>Sheared Llama-1.3B</strong> (Base LM) on the <strong>BLLIP-LG</strong> corpus results in improved syntactic generalization and out-of-distribution language understanding compared to a non-syntactic baseline (CPT LM).
+                                </p>
+                                <div className="flex justify-center">
+                                    <Image
+                                        src="./cpt.png"
+                                        alt="Continued pre-training"
+                                        width={600}
+                                        height={500}
+                                        className="rounded-md border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                                    />
+                                </div>
+                            </li>
+                            <li>
+                                <p className="mb-4">
+                                    <strong>Fine-tuning:</strong>
+                                    <br></br>
+                                     When used during fine-tuning of <strong>Sheared-Llama-1.3B</strong> on Natural Language Inference datasets, <strong>TreeReg</strong> mitigates degradation of performance on adversarial benchmarks (<strong>MoNLI</strong>, <strong>MED</strong>) compared to a non-syntactic baseline (FT LM).
+                                </p>
+                                <div className="flex justify-center">
+                                    <Image
+                                        src="./nli.png"
+                                        alt="Fine-tuning"
+                                        width={350}
+                                        height={250}
+                                        className="rounded-md border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                                    />
+                                </div>
+                            </li>
+                        </ul>
                     </section>
 
 
 
 
                     {/* Citation */}
-                    <section id="citation" className="w-full max-w-3xl rounded-lg p-8 mb-8">
+                    <section id="citation" className="w-full max-w-4xl rounded-lg p-8 mb-8">
                         <h3 className="text-2xl font-semibold text-zinc-700 mb-4">Citation</h3>
                         <p className="text-lg text-zinc-700 leading-relaxed">
                             If you find our work useful, please cite our paper:
@@ -330,11 +398,14 @@ export default function Page() {
 
                         <div className="bg-gray-100 p-6 rounded-md shadow-sm">
                             <pre className="text-sm font-mono text-zinc-700 whitespace-pre-wrap">
-                                {`@inproceedings{Murty2025NNetNav,
-  author= {Shikhar Murty and Hao Zhu and Dzmitry Bahdanau and Christopher Manning},
-  title={NNetNav: Unsupervised Learning of Browser Agents Through Environment Interaction in the Wild},
-  journal={arXiv preprint arXiv:2410.02907},
-  year={2025}
+                                {`@misc{nandi2025sneakingsyntaxtransformerlanguage,
+      title={Sneaking Syntax into Transformer Language Models with Tree Regularization}, 
+      author={Ananjan Nandi and Christopher D. Manning and Shikhar Murty},
+      year={2025},
+      eprint={2411.18885},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2411.18885}, 
 }`}
                             </pre>
                         </div>
@@ -348,7 +419,7 @@ export default function Page() {
                                 href="https://nextjs.org/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-600 hover:underline"
+                                className="text-blue-600 hover:underline hover:text-blue-700 transition-colors duration-300"
                             >
                                 Next.js
                             </a>
