@@ -13,54 +13,7 @@ const sections = [
 ];
 
 export default function Page() {
-    const videoSources = Array.from({ length: 29 }, (_, i) => `./videos/output_${i}.mp4`);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [videoText, setVideoText] = useState("");
-    const [videoTitles, setVideoTitles] = useState(Array(29).fill(""));
     const [activeSection, setActiveSection] = useState("");
-
-
-
-
-
-    useEffect(() => {
-        const fetchVideoText = async () => {
-            try {
-                const response = await fetch(`./video_metadata/output_${currentIndex}.txt`);
-                if (response.ok) {
-                    const text = await response.text();
-                    setVideoText(text);
-                } else {
-                    setVideoText("No description available.");
-                }
-            } catch (error) {
-                console.error(error); // Avoids lint warning
-                setVideoText("Error loading description.");
-            }
-        };
-
-        fetchVideoText();
-    }, [currentIndex]);
-
-    useEffect(() => {
-        const fetchVideoTitles = async () => {
-            const titles = await Promise.all(
-                videoSources.map(async (_, index) => {
-                    try {
-                        const response = await fetch(`./video_metadata/description_${index}.txt`);
-                        if (response.ok) {
-                            return await response.text();
-                        }
-                    } catch (error) {
-                        console.error(error); // Avoids lint warning
-                    }
-                    return `Video ${index + 1}`;
-                })
-            );
-            setVideoTitles(titles);
-        };
-        fetchVideoTitles();
-    }, []);
 
     // Scroll tracking for the active section
     useEffect(() => {
@@ -84,7 +37,6 @@ export default function Page() {
     }, []);
 
     return (
-
         <div className="min-h-screen bg-[#FFFCF8] flex flex-col items-center p-6 font-serif text-zinc-700">
             {/* Responsive Layout */}
             <div className="flex w-full max-w-7xl mx-auto">
@@ -117,9 +69,6 @@ export default function Page() {
                     </div>
                 </aside>
 
-
-
-
                 {/* Main Content (Centered) */}
                 <main className="flex-1 flex flex-col items-center w-full max-w-6xl px-4 lg:ml-72">
 
@@ -143,7 +92,6 @@ export default function Page() {
                             <sup>1</sup>Stanford University
                         </p>
                     </header>
-
 
                     <div className="bg-white shadow-md rounded-xl p-8 mb-10 hover:shadow-lg transition-all duration-300">
                         <ul className="grid grid-cols-3 gap-6 text-lg text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600">
@@ -243,14 +191,12 @@ export default function Page() {
                         </ul>
                     </section>
 
-
                     {/* Example Rollouts */}
                     <section id="benchmarks" className="w-full max-w-4xl rounded-lg p-8 mt-12 mb-8">
                         <h3 className="text-2xl font-semibold text-zinc-700 mb-4">Overview of Results</h3>
                         <p className="text-lg text-zinc-700 mb-4 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600">
                             Detailed experimental setups and results are available in our <a href="https://arxiv.org/abs/2411.18885" className="text-zinc-800 hover:underline [&_a]:underline">paper</a>.
                         </p>
-
 
                         <ul className="space-y-8 text-lg text-zinc-700">
                             <li>
@@ -386,9 +332,6 @@ export default function Page() {
                         </ul>
                     </section>
 
-
-
-
                     {/* Citation */}
                     <section id="citation" className="w-full max-w-4xl rounded-lg p-8 mb-8">
                         <h3 className="text-2xl font-semibold text-zinc-700 mb-4">Citation</h3>
@@ -428,6 +371,5 @@ export default function Page() {
                 </main>
             </div>
         </div>
-
     )
 }
